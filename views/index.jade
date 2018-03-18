@@ -1,0 +1,60 @@
+extends layout
+block content
+	div
+		img(src= "/images/telefonia.jpeg")
+		h2 Fale Mais
+		p Calcule o valor de sua ligação:
+		form(class='form-horizontal')
+			fieldset
+				div.control-group
+					label(for='origem',class='control-label') Origem
+					div.controls
+						select(ng-model="ligacao.origem")
+							option(value="011") 011
+							option(value="016") 016
+							option(value="017") 017
+							option(value="018") 018
+				div.control-group
+					label(for='destino',class='control-label') Destino
+					div.controls
+						select(ng-model="ligacao.destino")
+							option(value="011") 011
+							option(value="016") 016
+							option(value="017") 017
+							option(value="018") 018
+				div.control-group
+					label(for='tempo',class='control-label') Tempo
+					div.controls
+						input(type='text',,placeholder='tempo',class='input-xlarge',ng-model="ligacao.tempo")
+				div.control-group
+					label(for='plano',class='control-label') Plano
+					div.controls
+						select(ng-model="ligacao.plano")
+							option(value="FaleMais 30") FaleMais 30
+							option(value="FaleMais 60") FaleMais 60
+							option(value="FaleMais 120") FaleMais 120
+				div.control-group
+					div.controls
+						<br/>
+						button(type="submit" ng-click="submitForm()") Cadastra
+	div
+		<br/>
+		table(border=1)
+			thead
+				tr
+					th Origem
+					th Destino
+					th Tempo
+					th Plano FaleMais
+					th Com FaleMais
+					th Sem FaleMais      
+			tbody
+				tr(ng-repeat="ligacao in ligacoes")
+					td {{ligacao.origem}}
+					td {{ligacao.destino}}
+					td {{ligacao.tempo}}
+					td {{ligacao.plano}}
+					td {{ligacao.comFaleMais}}
+					td {{ligacao.semFaleMais}}  
+					
+					
